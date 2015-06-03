@@ -13,35 +13,33 @@ import com.elife.model.RequestParamsModel;
  * 
  */
 public class RegisterRequest extends JSONRequest implements IRequestAction {
-	// 01-18 00:49:57.639: I/System.out(17935):
-	// JSONRequest==url==http://812860598-com.f3322.net:8081/yg/admin/appMemberAction_register.do?member_name=13357736225&psw=123456&
-	// 01-18 00:49:57.859: I/System.out(17935):
-	// JSONRequest==result==post{"result":1,"data":{"dataflag":0,"birthday":null,"sex":"","zip_code":"","remark":"","psw":"","identity_card":"","city":"","member_id":"5babb68fb3ba47408af48e509c24f281","createtime":null,"login_time":null,"addr_detail":"","county":"","email":"","real_name":"","register_type":"","province":"","member_name":"13357736225","telephone":"","mobile":""},"msg":"操作成功"}
-
 	private Handler handler;
-
-	private String member_name;
-	private String psw;
+	private String phone;
+	private String ucode;
+	private String uid;
+	private String vcode;
 
 	public RegisterRequest(Handler handler) {
 		super(handler);
 		this.handler = handler;
 	}
 
-	public void setParams(String member_name, String psw) {
-		this.member_name = member_name;
-		this.psw = psw;
+	public void setParams(String phone, String ucode, String uid,String vcode) {
+		this.uid = uid;
+		this.ucode = ucode;
+		this.phone = phone;
+		this.vcode=vcode;
 	}
 
 	@Override
 	public String getAction() {
-		return APPMEMBERACTION_ORDERPAY;
+		return APPMEMBERACTION_REGISTER;
 	}
 
 	@Override
 	protected void onHttpSuccess(String str) {
 		Message msg = new Message();
-		msg.what = CommonData.HTTP_HANDLE_SUCCESS;
+		msg.what = CommonData.HTTP_HANDLE_SUCCESS2;
 		msg.obj = str;
 		handler.sendMessage(msg);
 
@@ -50,7 +48,7 @@ public class RegisterRequest extends JSONRequest implements IRequestAction {
 	@Override
 	protected void onHttpFailure(int errorCode, String why) {
 		Message msg = new Message();
-		msg.what = CommonData.HTTP_HANDLE_FAILE;
+		msg.what = CommonData.HTTP_HANDLE_FAILE2;
 		msg.obj = why;
 		handler.sendMessage(msg);
 	}
@@ -58,15 +56,26 @@ public class RegisterRequest extends JSONRequest implements IRequestAction {
 	@Override
 	protected List<RequestParamsModel> getParamList() {
 		List<RequestParamsModel> list = new ArrayList<RequestParamsModel>();
+
 		RequestParamsModel model1 = new RequestParamsModel();
-		model1.setKey("member_name");
-		model1.setValue(member_name);
+		model1.setKey("phone");
+		model1.setValue(phone);
 		list.add(model1);
 
 		RequestParamsModel model2 = new RequestParamsModel();
-		model2.setKey("psw");
-		model2.setValue(psw);
+		model2.setKey("uid");
+		model2.setValue(uid);
 		list.add(model2);
+
+		RequestParamsModel model3 = new RequestParamsModel();
+		model3.setKey("ucode");
+		model3.setValue(ucode);
+		list.add(model3);
+		
+		RequestParamsModel model4 = new RequestParamsModel();
+		model4.setKey("vcode");
+		model4.setValue(vcode);
+		list.add(model4);
 		return list;
 	}
 }

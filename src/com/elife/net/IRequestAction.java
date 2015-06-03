@@ -5,7 +5,19 @@ package com.elife.net;
  *
  */
 public interface IRequestAction {
-
+	
+	/**
+	 * 获取权限
+	 */
+	String APPMEMBERACTION_PERMISSIONS="/admin/api/index.php/user/getUserName";
+	/***
+	 * 获取验证码
+	 */
+	String APPMEMBERACTION_CODE="/admin/api/index.php/user/getVcode";
+	/***
+	 * 注册
+	 */
+	String APPMEMBERACTION_REGISTER="/admin/api/index.php/user/checkValidate";
 	/**
 	 * 登录
 	 */

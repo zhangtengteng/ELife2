@@ -10,7 +10,7 @@ import com.elife.utils.LogN;
 
 public class SharedPreManager extends BaseManager
 {
-    private static String CONFIG_FILE_NAME = "chehui_maiche.config";
+    private static String CONFIG_FILE_NAME = "elife.config";
 
     private volatile static SharedPreManager instance = null;
 
@@ -25,7 +25,8 @@ public class SharedPreManager extends BaseManager
     }
 
     private SharedPreferences sp = null;
-
+    
+    
     // 远程服务器IP
     public static final String HOST_IP = "host";
 
@@ -37,6 +38,10 @@ public class SharedPreManager extends BaseManager
 
     // 用户密码
     public static final String USER_PWD = "pwd";
+    // uid
+    public static final String UID = "uid";
+    // ucode
+    public static final String UCODE = "ucode";
 
     private SharedPreManager()
     {

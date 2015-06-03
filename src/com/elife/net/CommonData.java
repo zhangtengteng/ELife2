@@ -3,12 +3,13 @@ package com.elife.net;
 public class CommonData {
 	public static String server_ip = "";
 
-	public static String SERVER_ADDRESS = "http://192.168.4.252:8081/";
-	public static String IMAGE_ADDRESS = ".scar.com.cn/upload/fuwu/";
-
-	public static final int HTTP_HANDLE_SUCCESS = 1;
+	public static String SERVER_ADDRESS = "http://www.wuyoutao.net";
+//	public static String IMAGE_ADDRESS = ".scar.com.cn/upload/fuwu/";
+ 	public static final int HTTP_HANDLE_SUCCESS = 1;
 	public static final int HTTP_HANDLE_FAILE = 0;
-
+	
+	public static final int HTTP_HANDLE_SUCCESS2 = 3;
+	public static final int HTTP_HANDLE_FAILE2 = 2;
 	/**
 	 * 一页数量
 	 */

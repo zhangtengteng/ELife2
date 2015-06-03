@@ -10,27 +10,27 @@ import com.elife.model.RequestParamsModel;
 import com.elife.model.ResponseResultModel;
 import com.google.gson.Gson;
 /**
- * 登录
+ * 获取权限
  *
  */
-public class LoginRequest extends JSONRequest implements IRequestAction {
+public class PremissionRequest extends JSONRequest implements IRequestAction {
 	private Gson gson= new Gson();
 	private Handler handler;
-	private String member_name;
-	private String psw;
-	public LoginRequest(Handler handler) {
+	private String ucode;
+	private String uid;
+	public PremissionRequest(Handler handler) {
 		super(handler);
 		this.handler = handler;
 	}
 
-	public void setParams(String member_name, String psw) {
-		this.member_name = member_name;
-		this.psw = psw;
+	public void setParams(String ucode, String uid) {
+		this.ucode = ucode;
+		this.uid = uid;
 	}
 
 	@Override
 	public String getAction() {
-		return APPMEMBERACTION_LOGIN;
+		return APPMEMBERACTION_PERMISSIONS;
 	}
 
 	@Override
@@ -54,13 +54,13 @@ public class LoginRequest extends JSONRequest implements IRequestAction {
 	protected List<RequestParamsModel> getParamList() {
 		List<RequestParamsModel> list = new ArrayList<RequestParamsModel>();
 		RequestParamsModel model1 = new RequestParamsModel();
-		model1.setKey("member_name");
-		model1.setValue(member_name);
+		model1.setKey("ucode");
+		model1.setValue(ucode);
 		list.add(model1);
 
 		RequestParamsModel model2 = new RequestParamsModel();
-		model2.setKey("psw");
-		model2.setValue(psw);
+		model2.setKey("uid");
+		model2.setValue(uid);
 		list.add(model2);
 		return list;
 	}

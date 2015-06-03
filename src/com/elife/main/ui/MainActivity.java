@@ -1,32 +1,37 @@
-package com.elife.project.main.ui;
+package com.elife.main.ui;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.ActivityGroup;
-import android.app.LocalActivityManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.elife.R;
-import com.elife.adapter.MyPagerAdapter;
+import com.elife.afinal.utils.JSONUtil;
 import com.elife.main.home.ui.HomeActivity;
 import com.elife.main.home.ui.SetActivity2;
 import com.elife.main.home.ui.SetActivity3;
-import com.elife.main.home.ui.ViewPagerActivity1;
+import com.elife.model.PremissionsModel;
 import com.elife.net.CommonData;
+import com.elife.net.PremissionRequest;
+import com.elife.project.comm.ExtractorThread;
+import com.elife.utils.LogN;
+import com.elife.utils.ToastUtils;
 
 public class MainActivity extends ActivityGroup implements OnClickListener {
 
@@ -73,23 +78,40 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
 	private FrameLayout mContainer = null;
 
 	private ProgressDialog progressDialog = null;
+	
 
 	// 顶部标题栏
 	private TextView tvLeft;
 	private TextView tvRight;
 	private ImageButton btnDown;
 
+	private Handler handler = new Handler() {
+		@Override
+		public void dispatchMessage(Message msg) {
+			super.dispatchMessage(msg);
+			switch (msg.what) {
+
+				default :
+					break;
+			}
+		}
+	};
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
 		initViews();
 		initTopViews();
 		bindListener();
 		loadDefault();
 
 	}
+
+	
+	
+	
+	
+
 
 	/***
 	 * 初始化顶部标题栏
@@ -187,22 +209,22 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
 				android.R.color.transparent));
 
 		switch (index) {
-		case CommonData.TAB_HOME_INDEX:
-			mSelectedView = mHomeView;
-			mHomeView.setBackgroundResource(R.color.white_color);
-			break;
+			case CommonData.TAB_HOME_INDEX :
+				mSelectedView = mHomeView;
+				mHomeView.setBackgroundResource(R.color.white_color);
+				break;
 
-		case CommonData.TAB_ORDER_INDEX:
-			mSelectedView = mOrderView;
-			mOrderView.setBackgroundResource(R.color.white_color);
-			break;
+			case CommonData.TAB_ORDER_INDEX :
+				mSelectedView = mOrderView;
+				mOrderView.setBackgroundResource(R.color.white_color);
+				break;
 
-		case CommonData.TAB_SHOP_INDEX:
-			mSelectedView = mShopView;
-			mShopView.setBackgroundResource(R.color.white_color);
-			break;
-		default:
-			break;
+			case CommonData.TAB_SHOP_INDEX :
+				mSelectedView = mShopView;
+				mShopView.setBackgroundResource(R.color.white_color);
+				break;
+			default :
+				break;
 		}
 		currentIndex = index;
 		mSelectedView.setSelected(true);
@@ -213,42 +235,46 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
 		mActivityStack.clear();
 		switch (v.getId()) {
 		// home
-		case R.id.tab_home_layout:
-			if (currentIndex == CommonData.TAB_HOME_INDEX) {
-				return;
-			}
-			loadDefault();
-			break;
-		// order
-		case R.id.tab_order_layout:
-			if (currentIndex == CommonData.TAB_ORDER_INDEX) {
-				return;
-			}
-			setSelected(CommonData.TAB_ORDER_INDEX);
-			loadActivity(SetActivity2.class.getName(), SetActivity2.class, null);
-			break;
-		// shop
-		case R.id.tab_shop_layout:
-			if (currentIndex == CommonData.TAB_SHOP_INDEX) {
-				return;
-			}
-			setSelected(CommonData.TAB_SHOP_INDEX);
-			loadActivity(SetActivity3.class.getName(), SetActivity3.class, null);
-			break;
+			case R.id.tab_home_layout :
+				if (currentIndex == CommonData.TAB_HOME_INDEX) {
+					return;
+				}
+				loadDefault();
+				break;
+			// order
+			case R.id.tab_order_layout :
+				if (currentIndex == CommonData.TAB_ORDER_INDEX) {
+					return;
+				}
+				setSelected(CommonData.TAB_ORDER_INDEX);
+				loadActivity(SetActivity2.class.getName(), SetActivity2.class,
+						null);
+				break;
+			// shop
+			case R.id.tab_shop_layout :
+				if (currentIndex == CommonData.TAB_SHOP_INDEX) {
+					return;
+				}
+				setSelected(CommonData.TAB_SHOP_INDEX);
+				loadActivity(SetActivity3.class.getName(), SetActivity3.class,
+						null);
+				break;
 
-		// 顶部文字
-		case R.id.tvLeft:
-			Intent intent1 = new Intent(MainActivity.this, RegActivity.class);
-			startActivity(intent1);
-			break;
+			// 顶部文字
+			case R.id.tvLeft :
+				Intent intent1 = new Intent(MainActivity.this,
+						RegActivity.class);
+				startActivity(intent1);
+				break;
 
-		// 顶部文字
-		case R.id.ibLeftImag:
-			Intent intent2 = new Intent(MainActivity.this, RegActivity.class);
-			startActivity(intent2);
-			break;
-		default:
-			break;
+			// 顶部文字
+			case R.id.ibLeftImag :
+				Intent intent2 = new Intent(MainActivity.this,
+						RegActivity.class);
+				startActivity(intent2);
+				break;
+			default :
+				break;
 		}
 	}
 

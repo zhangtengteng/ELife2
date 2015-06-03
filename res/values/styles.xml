@@ -32,10 +32,5 @@
         <item name="android:layout_marginLeft">5dp</item>
     </style>
     
-    <style name="all_type_detail_item">
-        <item name="android:layout_width">0</item>
-        <item name="android:height">wrap_content</item>
-        <item name="android:background">@drawable/corners_bg_green</item>
-    </style>
 
 </resources>

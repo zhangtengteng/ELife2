@@ -31,7 +31,7 @@ public abstract class JSONRequest extends Request {
 	@Override
 	protected void httpConnect() {
 
-		String uriAPI = CommonData.SERVER_ADDRESS + "" + getAction() + ".ashx?"
+		String uriAPI = CommonData.SERVER_ADDRESS + "" + getAction() + "?"
 				+ getParms();
 		System.out.println("JSONRequest==url==" + uriAPI);
 //		HttpGet httpRequest = new HttpGet(uriAPI);
@@ -76,11 +76,11 @@ public abstract class JSONRequest extends Request {
 						.getEntity());
 				System.out.println("JSONRequest==result==post" + strResult);
 				ResponseResultModel model = gson.fromJson(strResult, ResponseResultModel.class);
-				if (model.getResult()==1) {
+				if (model.isSuccess()) {
 					//成功
 					onHttpSuccess(strResult);
 				}else{
-					onHttpFailure( CommonData.HTTP_HANDLE_FAILE,model.getMsg());
+					onHttpFailure( CommonData.HTTP_HANDLE_FAILE,model.getMessage());
 				}
 				
 			} else {
@@ -94,7 +94,6 @@ public abstract class JSONRequest extends Request {
 			e.printStackTrace();
 		}
 	}
-
 	protected abstract void onHttpSuccess(String str);
 
 	protected abstract void onHttpFailure(int errorCode, String why);

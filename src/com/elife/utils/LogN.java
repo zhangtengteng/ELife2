@@ -14,7 +14,7 @@ public class LogN
 
     private static final boolean ERROR = true & BuildConfig.DEBUG;
 
-    private static final String TAG = "CheHui";
+    private static final String TAG = "Elife";
 
     public static void i(Object nvsObject, String msg)
     {
