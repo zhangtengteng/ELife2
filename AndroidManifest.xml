@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.elife"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Black.NoTitleBar" >
+        <activity
+            android:name="com.elife.project.main.ui.MainActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.elife.main.home.ui.HomeActivity" />
+        <activity android:name="com.elife.main.home.ui.EActivity" />
+        <activity android:name="com.elife.project.main.ui.RegActivity" />
+        <activity android:name="com.elife.main.home.ui.ViewPagerActivity1" />
+        <activity android:name="com.elife.main.home.ui.ViewPagerActivity2" />
+        <activity android:name="com.elife.main.home.ui.ViewPagerActivity3" />
+        <activity android:name="com.elife.main.home.ui.ViewPagerActivity4" />
+        <activity android:name="com.elife.main.home.ui.ViewPagerActivity5" />
+        <activity android:name="com.elife.main.home.ui.ViewPagerActivity6" />
+        <activity android:name="com.elife.main.home.ui.SetActivity2" />
+        <activity android:name="com.elife.main.home.ui.SetActivity3" />
+    </application>
+
+</manifest>

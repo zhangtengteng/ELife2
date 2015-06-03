@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical" >
+
+    <!-- vierPager -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center" >
+        </android.support.v4.view.ViewPager>
+
+        <LinearLayout
+            android:id="@+id/ll_round"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <View
+                android:id="@+id/iv1"
+                style="@style/VierPagerRound"
+                android:background="@drawable/view_pager_round_red" />
+
+            <View
+                android:id="@+id/iv2"
+                style="@style/VierPagerRound"
+                android:background="@drawable/view_pager_round_white" />
+
+            <View
+                android:id="@+id/iv3"
+                style="@style/VierPagerRound"
+                android:background="@drawable/view_pager_round_white" />
+
+            <View
+                android:id="@+id/iv4"
+                style="@style/VierPagerRound"
+                android:background="@drawable/view_pager_round_white" />
+
+            <View
+                android:id="@+id/iv5"
+                style="@style/VierPagerRound"
+                android:background="@drawable/view_pager_round_white" />
+
+            <View
+                android:id="@+id/iv6"
+                style="@style/VierPagerRound"
+                android:background="@drawable/view_pager_round_white" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 2 -->
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:layout_marginRight="5dp"
+            android:id="@+id/ib_e"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/e_bg"
+            android:scaleType="fitXY"
+            android:src="@drawable/main_e" />
+
+        <ImageButton
+            android:id="@+id/ib_local"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:background="@color/local_bg"
+            android:scaleType="fitXY"
+            android:src="@drawable/main_local" />
+    </LinearLayout>
+
+    <!-- 3 -->
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:layout_marginRight="5dp"
+            android:id="@+id/ib_delicious"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/delicious_bg"
+            android:scaleType="fitXY"
+            android:src="@drawable/main_delicious" />
+
+        <ImageButton
+            android:layout_marginRight="5dp"
+            android:id="@+id/ib_little"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/little_bg"
+            android:scaleType="fitXY"
+            android:src="@drawable/main_little" />
+
+        <ImageButton
+            android:id="@+id/ib_menu"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/menu_bg"
+            android:scaleType="fitXY"
+            android:src="@drawable/main_menu" />
+    </LinearLayout>
+    <!-- 4 -->
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageButton
+              android:layout_marginRight="5dp"
+            android:id="@+id/ib_all"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:background="@color/lightgrey"
+            android:scaleType="fitXY"
+            android:src="@drawable/main_all" />
+
+        <ImageButton
+            android:id="@+id/ib_aid"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/aid_bg"
+            android:scaleType="fitXY"
+            android:src="@drawable/main_aid" />
+    </LinearLayout>
+
+</LinearLayout>
