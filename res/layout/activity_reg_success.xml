@@ -23,4 +23,30 @@
             android:background="@drawable/reg_success_face" />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="注册成功"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+        
+         <Button
+             android:layout_alignParentBottom="true"
+        android:id="@+id/btn_register"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:text="添加新地址"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/corners_bg_reg0_bule" />
+    </RelativeLayout>
+
 </LinearLayout>

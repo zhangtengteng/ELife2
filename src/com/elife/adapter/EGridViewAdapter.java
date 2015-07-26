@@ -8,7 +8,11 @@ import android.widget.BaseAdapter;
 
 import com.elife.R;
 import com.elife.ui.base.BaseActivity;
-
+/**
+ * grideview adapter
+ * @author Administrator
+ *
+ */
 public class EGridViewAdapter extends BaseAdapter {
 	private Context context;
 	private LayoutInflater inflater;

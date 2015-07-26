@@ -27,6 +27,7 @@
         <activity android:name="com.elife.main.home.ui.HomeActivity" />
         <activity android:name="com.elife.main.home.ui.EActivity" />
         <activity android:name="com.elife.main.ui.RegActivity" />
+        <activity android:name="com.elife.main.ui.RegSuccessActivity" />
         <activity android:name="com.elife.main.home.ui.ViewPagerActivity1" />
         <activity android:name="com.elife.main.home.ui.ViewPagerActivity2" />
         <activity android:name="com.elife.main.home.ui.ViewPagerActivity3" />

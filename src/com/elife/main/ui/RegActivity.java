@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.elife.R;
 import com.elife.diy.EditTextWithDel;
@@ -30,6 +31,7 @@ public class RegActivity extends BaseActivity implements OnClickListener {
 	private EditTextWithDel phone;
 	private Button register;
 	private EditText code;
+	private TextView left,top;
 	String why;
 	private Handler handler = new Handler() {
 		@Override
@@ -51,12 +53,18 @@ public class RegActivity extends BaseActivity implements OnClickListener {
 					ToastUtils.showLongToast(RegActivity.this, "获取验证码成功！");
 					break;
 				case CommonData.HTTP_HANDLE_SUCCESS2 :
-					ToastUtils.showLongToast(RegActivity.this, "注册成功！");
+					OnLoginResponsed();
+					
 					break;
 
 				default :
 					break;
 			}
+		}
+
+		private void OnLoginResponsed() {
+			ToastUtils.showLongToast(RegActivity.this, "注册成功！");
+			activityManager.startNextActivity(RegSuccessActivity.class);
 		}
 	};
 
@@ -64,10 +72,20 @@ public class RegActivity extends BaseActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(com.elife.R.layout.activity_reg);
+		initTops();
 		initViews();
 		bindListener();
 	}
 
+	
+	/**
+	 * 初始化顶部
+	 */
+	private void initTops() {
+		left =(TextView) findViewById(R.id.tv_left);
+		top= (TextView) findViewById(R.id.tv_top);
+		top.setText("一键登录");
+	}
 	private void bindListener() {
 		btnSendCode.setOnClickListener(this);
 	}
